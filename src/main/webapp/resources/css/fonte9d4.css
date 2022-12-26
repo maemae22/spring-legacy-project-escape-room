@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Mostserrat|PT+Serif');
+
+@font-face {
+    font-family:'NanumGothic';
+    src: url('../webfont/NanumGothic.eot');
+    src: url('../webfont/NanumGothicd41d.eot?#iefix') format('embedded-opentype'),
+         url('../webfont/NanumGothic.html') format('woff'),
+         url('../webfont/NanumGothic-2.html') format('truetype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+ font-family:'NanumSquare';
+ src: url(../webfont/NanumSquareR.eot);
+ src: url(../webfont/NanumSquareRd41d.eot?#iefix) format('embedded-opentype'),
+      url(../webfont/NanumSquareR.html) format('woff'),
+      url(../webfont/NanumSquareR-2.html) format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumSquareBlod';
+ font-weight: 700;
+ src: url(../webfont/NanumSquareB.eot);
+ src: url(../webfont/NanumSquareBd41d.eot?#iefix) format('embedded-opentype'),
+      url(../webfont/NanumSquareB.html) format('woff'),
+      url(../webfont/NanumSquareB-2.html) format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumSquareEBold';
+ font-weight: 800;
+ src: url(../webfont/NanumSquareEB.eot);
+ src: url(../webfont/NanumSquareEBd41d.eot?#iefix) format('embedded-opentype'),
+      url(../webfont/NanumSquareEB.html) format('woff'),
+      url(../webfont/NanumSquareEB-2.html) format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumSquareLight';
+ font-weight: 100;
+ src: url(../webfont/NanumSquareL.eot);
+ src: url(../webfont/NanumSquareLd41d.eot?#iefix) format('embedded-opentype'),
+      url(../webfont/NanumSquareL.html) format('woff'),
+      url(../webfont/NanumSquareL-2.html) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 300;
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+  src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+/*.nanumbarungothic * {
+ font-family: 'NanumBarunGothic', sans-serif;
+}*/
+
+.normal {
+ font-style: normal;
+}
+
+.w250 {
+ font-weight: 250;
+}
+
+.w300 {
+ font-weight: 300;
+}
+
+.w350 {
+ font-weight: 350;
+}
+
+.w400 {
+ font-weight: 400;
+}
+
+.w500 {
+ font-weight: 500;
+}
+
+.w700 {
+ font-weight: 700;
+}
+
+.w800 {
+ font-weight: 800;
+}
+
+.w900 {
+ font-weight: 900;
+}
+
+/*li span {
+ line-height: 1.8;
+ font-size: 1.3em;
+}*/

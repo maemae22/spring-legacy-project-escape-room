@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.sesame.mapper.ReserveMapper">
+	<insert id="insertReserve">
+		<selectKey resultType="int" keyProperty="reserveNo" order="BEFORE">
+			select reserve_seq.nextval from dual 
+		</selectKey>
+		insert into reserve values(#{reserveNo}, #{reserveEmail}, #{reserveDate}, #{reserveLoc}, #{reserveCafe}
+									, #{reserveTheme}, #{reserveTime}, #{reservePlayer}, #{reserveMoney}, #{reserveComment}
+									, #{reservePayment}, sysdate)
+	</insert>
+	
+	<update id="updateReserve">
+		update reserve 
+		<set>
+			<if test="reserveDate!=null and reserveDate!=''">
+				reserve_date=#{reserveDate},
+			</if>
+			<if test="reserveLoc!=null and reserveLoc!=''">
+				reserve_loc=#{reserveLoc},
+			</if>
+			<if test="reserveCafe!=null and reserveCafe!=''">
+				reserve_cafe=#{reserveCafe},
+			</if>
+			<if test="reserve_theme!=null and reserve_theme!=''">
+				reserve_theme=#{reserveTheme}
+			</if>
+			<if test="reserveTime!=null and reserveTime!=''">
+				reserve_time=#{reserveTime}
+			</if>
+			<if test="reservePlayer!=null and reservePlayer!=0">
+				reserve_player=#{reservePlayer}
+			</if>
+			<if test="reserveMoney!=null and reserveMoney!=0">
+				reserve_money=#{reserveMoney}
+			</if>
+			<if test="reserveComment!=null and reserveComment!=''">
+				reserve_comment=#{reserveComment}
+			</if>
+			<if test="reservePayment!=null and reservePayment!=''">
+				reserve_payment=#{reservePayment}
+			</if>
+		</set>
+		where reserve_no=#{reserveNo}
+	</update>
+	
+	
+	
+	<delete id="deleteReserve">
+		delete from reserve where reserve_no=#{reserveNo}
+	</delete>
+	
+	<select id="reserveCount" resultType="int">
+		select count(*) from reserve
+	</select>
+	
+	<select id="myReserveCount" resultType="int">
+		select count(*) from reserve where reserve_email=#{memberEmail}
+	</select>
+	
+	<select id="selectReserve" resultType="Reserve">
+		select * from reserve where reserve_no=#{reserveNo}
+	</select>
+	
+	<select id="checkReserveTime" resultType="String">
+		<!-- select reserve_time from reserve where reserve_theme=#{reserveTheme} and reserve_date=#{reserveDate} order by reserve_time -->
+		select nvl2(b.reserve_time,'false','true')
+		 from time a
+		 left OUTER join (select reserve_time from reserve where reserve_theme=#{reserveTheme} and reserve_date=#{reserveDate} order 
+		 by reserve_time) b
+		 ON a.default_time = b.reserve_time
+		 order by a.default_time
+	
+	</select>
+	
+	<select id="selectReserveList" resultType="Reserve">
+		select * from (select rownum rn, book.* from (select * from reserve
+			order by reserve_date desc) book) where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!--  -->
+	<select id="selectMyReserveList" resultType="Reserve">
+		select * from (select rownum rn, book.* from (select * from reserve where reserve_email=#{memberEmail}
+			order by reserve_date desc) book) where rn between #{startRow} and #{endRow} 
+	</select>
+</mapper>

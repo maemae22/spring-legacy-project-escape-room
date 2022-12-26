@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.container { overflow: hidden; }
+
+.clearfix { clear:both; }
+
+
+/*** 커스텀 알림창 관련 ***/
+.ui-dialog { 
+	z-index:99999; 
+	padding:0;
+    border:0;border-radius:0;
+}
+
+.ui-dialog .ui-dialog-titlebar { 
+	padding:1.4em 1em;
+	background:#ffde00;
+	border:0;border-radius:0;
+}
+
+.ui-dialog .ui-dialog-titlebar .custom-dialog-titlebar-content {
+	text-align:center;
+}
+
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+	top:10px;right:10px;
+	margin:0;
+	border:0;
+	background:none;
+	outline:none;
+}
+
+.ui-dialog .ui-widget.ui-wiget-content { 
+	padding:0;border:0; 
+}
+

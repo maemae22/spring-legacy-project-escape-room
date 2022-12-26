@@ -1,0 +1,545 @@
+@charset "utf-8";
+
+/* 1. 공통 (Reset, Common) */
+.mCSB_inside>.mCSB_container {
+	margin-right: 0 !important;
+}
+
+input::placeholder {
+	color: #ccc;
+}
+
+.reserve_wrap_back {
+	position: fixed;
+	z-index: 9997;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+
+.reserve_wrap_back.ie {
+	background-color: rgba(0, 0, 0, 0.7) !important;
+	background: rgba(0, 0, 0, 0.7) !important;
+	color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.reserve_wrap_back.not_ie {
+	filter: blur(11px) !important;
+	background-color: rgba(0, 0, 0, 0.6) !important;
+	background: rgba(0, 0, 0, 0.6) !important;
+	color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.reserve_wrap {
+	position: fixed;
+	z-index: 9998;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 80%;
+	min-width: 300px;
+	max-width: 500px;
+	height: 90%;
+	min-height: 250px;
+	max-height: 300px;
+}
+
+.reserve_wrap .reserve_layer {
+	display: block;
+	position: absolute;
+	z-index: 9998;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	padding: 30px 40px;
+	background-color: #f0f0f0;
+	border-radius: 3px;
+
+	box-shadow: 11px 10px 23px -2px rgba(0, 0, 0, 0.75);
+}
+
+.reserve_wrap .reserve_layer h2 {
+	font-size: 25px;
+	text-align: center;
+}
+
+.reserve_wrap .reserve_layer p {
+	font-size: 14px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm {
+	margin-top: 25px;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_input_box {
+	width: 100%;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_input_box .reserve_label {
+
+	display: inline-block;
+	width: 70px;
+	height: 35px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	background-color: #242426;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	font-weight: 100;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_input_box .reserve_input {
+	display: inline-block;
+	width: calc(100% - 90px);
+	height: 35px;
+	margin-bottom: 10px;
+	padding: 0 10px;
+	border: 0;
+	background-color: #fff;
+	outline: none;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_btn_box {
+	width: 100%;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_btn_box .reserve_btn {
+	float: left;
+	display: inline-block;
+	width: calc(50% - 7px);
+	height: 35px;
+	margin-right: 10px;
+	border: 0;
+	background-color: #ffed02;
+}
+
+.reserve_wrap .reserve_layer .reserve_frm .reserve_btn_box .cancel_btn {
+	float: left;
+	display: inline-block;
+	width: calc(50% - 7px);
+	height: 35px;
+	border: 0;
+	background-color: #a9a9a9;
+	color: #fff;
+}
+
+.reserve_wrap .reserve_layer .reserve_close_btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.book_inner.inner_1_depth {
+	width: 100%;
+	padding: 17px;
+	background-color: #161616;
+}
+
+.book_inner.inner_1_depth .book_panel {
+	width: 1100px;
+	padding: 20px;
+	background-color: #f0f0f0;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+.book_inner.inner_1_depth .book_panel .calender {
+	display: inline-block;
+	width: 280px;
+	vertical-align: top;
+}
+
+.book_inner.inner_1_depth .book_panel .calender #v-cal .vcal-header {
+	color: #fff;
+	background-color: #000;
+	border-radius: 10px;
+}
+
+.book_inner.inner_1_depth .book_panel .calender #v-cal .vcal-week span {
+	font-size: 0.8rem;
+	width: 39.69px;
+	padding: 17px 0;
+}
+
+.book_inner.inner_1_depth .book_panel .calender #v-cal .vcal-header svg {
+	fill: #fff;
+}
+
+.book_inner.inner_1_depth .book_panel .calender .demo-picked {
+	visibility: hidden;
+}
+
+.book_inner.inner_1_depth .book_panel .location {
+	display: inline-block;
+	width: 100px;
+	vertical-align: top;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_header {
+	width: 100%;
+	height: 66.38px;
+	background-color: #000;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_header span {
+	color: #fff;
+	line-height: 66.38px;
+	font-weight: 700;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_list {
+	background-color: #fff;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_list .loc {
+	position: relative;
+	width: 100%;
+	height: 35px;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_list .loc span {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	width: 50px;
+	height: 25px;
+	border-radius: 5px;
+	line-height: 25px;
+	cursor: pointer;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_list .loc span:hover {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .location .loc_list .loc span.active {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector {
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_header {
+	width: 100%;
+	height: 66.38px;
+	background-color: #000;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_header span {
+	color: #fff;
+	line-height: 66.38px;
+	font-weight: 700;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_list {
+	height: 490px;
+	background-color: #fff;
+	overflow-y: scroll;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_list .store {
+	position: relative;
+	width: 100%;
+	height: 35px;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_list .store span {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	width: 200px;
+	height: 25px;
+	border-radius: 5px;
+	line-height: 25px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_list .store span:hover {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .store_selector .store_list .store span.active {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector {
+	display: inline-block;
+	width: 270px;
+	vertical-align: top;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_header {
+	width: 100%;
+	height: 66.38px;
+	background-color: #000;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_header span {
+	color: #fff;
+	line-height: 66.38px;
+	font-weight: 700;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_list {
+	height: 490px;
+	max-height: 490px;
+	background-color: #fff;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_list .theme {
+	position: relative;
+	width: 100%;
+	height: 35px;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_list .theme span {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	width: 150px;
+	height: 25px;
+	border-radius: 5px;
+	line-height: 25px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_list .theme span:hover {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .theme_selector .theme_list .theme span.active {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector {
+	display: inline-block;
+	width: 90px;
+	vertical-align: top;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_header {
+	width: 100%;
+	height: 66.38px;
+	background-color: #000;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_header span {
+	color: #fff;
+	line-height: 66.38px;
+	font-weight: 700;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list {
+	min-height: 245px;
+	background-color: #fff;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list .time {
+	position: relative;
+	width: 100%;
+	height: 35px;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list .time span {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	width: 60px;
+	height: 25px;
+	border-radius: 5px;
+	line-height: 25px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list .time span:hover {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list .time.active span {
+	background-color: orange;
+}
+
+.book_inner.inner_1_depth .book_panel .time_selector .time_list .time.false span {
+	text-decoration: line-through;
+}
+
+.book_inner.inner_1_depth .book_panel .book_btn_box {
+	width: 100%;
+	text-align: center;
+	padding: 15px 0px;
+	margin-top: 10px;
+}
+
+.book_inner.inner_1_depth .book_panel .book_btn_box #book_btn {
+	display: none;
+	width: 150px;
+	height: 35px;
+	background-color: orange;
+	border: 0;
+	color: #333;
+}
+
+/* 5. 모바일 (해상도 너비 558px 이하) */
+@media all and (max-width:1185px) {
+	.book_inner.inner_1_depth .book_panel {
+		width: 860px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .store_selector {
+		width: 180px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .store_selector .store_list .store span {
+		width: 100px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .theme_selector {
+		width: 150px;
+	}
+}
+
+
+@media all and (max-width:932px) {
+
+	.book_inner.inner_1_depth {
+		padding: 17px;
+		padding-top: 60px;
+	}
+
+	.book_inner.inner_1_depth .book_panel {
+		width: 100%;
+	}
+
+	.book_inner.inner_1_depth .book_panel .calender {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .location {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .store_selector {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .theme_selector {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.book_inner.inner_1_depth .book_panel .time_selector {
+		width: 100%;
+	}
+
+}
+
+
+@media all and (max-width:740px) {
+	.reserve_wrap .reserve_layer {
+		padding: 20px 10px;
+	}
+
+	.reserve_wrap .reserve_layer .reserve_logo {
+		width: 100%;
+		text-align: center;
+	}
+
+	.reserve_wrap .reserve_layer .reserve_logo img {
+		display: inline-block;
+		width: 90%;
+	}
+
+	.reserve_wrap .reserve_layer .reserve_frm .btns {
+		width: 100%;
+		padding: 6px;
+	}
+
+	.reserve_wrap .reserve_layer .login_frm .btns #login_sbmt_btn {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 10px;
+		border: 0;
+		border-radius: 1000px;
+		background-color: #ffee02;
+		color: #000;
+	}
+}
+
+@media all and (max-width:500px) {
+	.reserve_wrap .reserve_layer {
+		max-height: 350px;
+	}
+}
+
+@media all and (max-width:380px) {
+	.reserve_wrap {
+		min-width: 280px;
+	}
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "//Apache Software Foundation//DTD tiles Configuration 3.0/EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	
+	<!-- / 요청 들어오면 보여줄 뷰 설정 -->
+	<definition name="main" template="/WEB-INF/views/index.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/main/main.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
+	</definition>
+	
+	<!-- /admin 요청 들어오면 보여줄 뷰 설정 -->
+	<definition name="admin" template="/WEB-INF/views/admin/index.jsp">
+		<put-attribute name="admin_nav" value="/WEB-INF/views/admin/admin_nav2.jsp"></put-attribute>
+		<put-attribute name="admin_sidebar" value="/WEB-INF/views/admin/admin_sidebar.jsp"></put-attribute>
+		<put-attribute name="admin_content" value="/WEB-INF/views/admin/admin_main.jsp"></put-attribute>
+		<put-attribute name="admin_footer" value="/WEB-INF/views/admin/admin_footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin/*" extends="admin">
+		<put-attribute name="admin_content" value="/WEB-INF/views/admin/{1}.jsp"></put-attribute>
+			</definition>
+	<definition name="admin/*/*" extends="admin">
+		<put-attribute name="admin_content" value="/WEB-INF/views/admin/{1}/{2}.jsp"></put-attribute>
+		</definition>
+	
+	
+	<!-- /* 요청 처리 -->
+	<definition name="*" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<definition name="*/*" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="*/*/*" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+
+</tiles-definitions>

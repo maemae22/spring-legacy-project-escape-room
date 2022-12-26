@@ -1,0 +1,60 @@
+.popup_layer {
+	min-height: 300px;
+    max-height: 350px;
+}
+
+.popup_layer__inner .aliiance_notice {     
+	font-size: 21px;
+    line-height: 29px;
+    font-weight:600;
+    text-align: center; 
+}
+
+.popup_layer__inner .aliiance_btn {
+	width: 100%;
+    position: absolute;
+    bottom: 80px;
+    text-align: center;
+    top: initial;
+    left: -50%;
+    transform: translateX(50%);
+}
+
+.popup_layer__inner .aliiance_btn a {
+	width: 200px;
+    height: 40px;
+    border: 3px solid #f7b50c;
+    display: inline-block;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 36px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.popup_layer__inner .aliiance_btn button#popup_close {
+	border: 0;
+    background-color: rgba(0,0,0,0);
+    margin-left: 20px;
+}
+
+@media all and (max-width:500px) {
+	.popup_layer .popup_layer__inner {
+		max-height: 250px;
+	}
+}
+
+@media all and (max-width:450px) {
+	.popup_layer__inner .aliiance_notice {     
+		font-size: 15px;
+	    line-height: 29px;
+	    font-weight:600;
+	    text-align: center; 
+	}
+
+	.popup_layer__inner .aliiance_btn {
+		bottom:40px;
+	}
+} 
+
+	

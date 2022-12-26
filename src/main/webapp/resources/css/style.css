@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* 1. 공통 (Reset, Common) */ 
+/*body { font-family:'NanumSquare' !important; }*/
+body { font-family: 'NanumBarunGothic', sans-serif !important; }
+
+.container { width:100%; }
+
+.container .container_inner { width:960px;margin-left:auto;margin-right:auto; }
+
+.container .container_inner.fixing_wid.fixing_wid_500 { width:500px; }
+
+.container .container_inner.fixing_wid.fixing_wid_960 { width:960px; }
+
+/* 2. PC (뷰포트 너비 2560px 이하 1921px 이상) */ 
+@media all and (max-width:2560px) and (min-width:1921px) {  
+	
+}
+
+/* 3. PC (뷰포트 너비 1920px 이하 1024px 이상) */ 
+@media all and (max-width:1920px) and (min-width:1025px) { 
+
+}
+
+/* 3. 패블릿 가로모드/태블릿 (뷰포트 너비 1024px 이하 901px 이상) */ 
+@media all and (max-width:1024px) and (min-width:901px) { 
+
+} 
+
+/* 4. 패블릿 가로모드/태블릿 (뷰포트 너비 1024px 이하 641px 이상) */ 
+@media all and (max-width:900px) and (min-width:641px) { 
+
+} 
+
+/* 5. 모바일 (해상도 640px 이하 421px 이상) */ 
+@media all and (max-width:640px) and (min-width:421px) { 
+
+
+}
+
+/* 6. 모바일 (해상도 420px 이하) */
+ @media all and (max-width:420px) {  
+
+}

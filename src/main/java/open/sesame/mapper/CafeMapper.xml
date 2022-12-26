@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.sesame.mapper.CafeMapper">
+
+	<insert id="insertCafe">
+		<selectKey resultType="int" keyProperty="cafeNo" order="BEFORE">
+			select cafe_seq.nextval from dual 
+		</selectKey>
+		insert into cafe values(#{cafeNo}, #{cafeName}, #{cafeTel}, #{cafeBhours},
+			 #{cafeAddress}, #{cafeDomain}, #{cafeLoc})
+	</insert>
+	
+	<update id="updateCafe">
+	 	update cafe
+	 	<set>
+	 		<if test="cafeName!=null and cafeName!=''">
+	 			cafe_name=#{cafeName}
+	 		</if>
+	 		<if test="cafeTel!=null and cafeTel!=''">
+	 			cafe_tel=#{cafeTel}
+	 		</if>
+	 		<if test="cafeBhours!=null and cafeBhours!=''">
+	 			cafe_bhours=#{cafeBhours}
+	 		</if>
+	 		<if test="cafeAddress!=null and cafeAddress!=''">
+	 			cafe_address=#{cafeAddress}
+	 		</if>
+	 		<if test="cafeDomain!=null and cafeDomain!=''">
+	 			cafe_domain=#{cafeDomain}
+	 		</if>
+	 		<if test="cafeLoc!=null and cafeLoc!=''">
+	 			cafe_loc=#{cafeLoc}
+	 		</if>
+	 	</set>
+	 	where cafe_no=#{cafeNo}
+	</update>
+	
+	<delete id="deleteCafe">
+		delete from cafe where cafe_no=#{cafeNo}
+	</delete>
+		<delete id="deleteCafe2">
+		delete from member where cafe_name=#{cafeName}
+	</delete>
+	
+	
+	<!-- 상세 검색1 -->
+	<select id="selectCafe" resultType="Cafe">
+		select * from cafe where cafe_no=#{cafeNo}
+	</select>
+
+	<!-- 상세 검색2 -->
+	<select id="selectCafeByName" resultType="Cafe">
+		select * from cafe where cafe_name=#{cafeName}
+	</select>
+	
+	<!-- 지역 전체 검색 -->
+	<select id="selectCafeList" resultType="Cafe">
+		select * from cafe order by cafe_name
+	</select>
+	
+	<!-- 지역 전체 카페 이름 검색 -->
+	<select id="selectCafeNameList" resultType="String">
+		select cafe_name from cafe order by cafe_name
+	</select>
+	
+	<!-- 지역 선택 검색 -->
+	<select id="selectLocCafeList" parameterType="map" resultType="Cafe">
+		select * from cafe where cafe_loc in
+			<!-- jsp에서 지역 선택한 결과를 loclist? 란 이름으로 받아와야함 -->
+			<foreach collection="search_select_loc" item="loc" open="(" close=")" separator=",">
+				#{loc}
+			</foreach>
+
+		order by cafe_no	
+	</select>
+
+	<select id="selectCafeCount" resultType="int">
+		select count(*) from cafe
+	</select>
+	
+	<!-- 예약페이지에서 지역 누르면 카페이름들 반환 -->
+	<select id="selectCafeListLoc" resultType="String">
+		select cafe_name from cafe where cafe_loc=#{cafeLoc} order by cafe_name
+	</select>
+	
+	<!-- 카페이름 키워드 검색 -->                          
+	<select id="selectSearchCafeList" resultType="Cafe">
+		<bind name="keyword" value="'%'+search_keyword+'%'"/>
+		select * from cafe where cafe_name like #{keyword} order by cafe_no
+	</select>
+		<select id="selectCafeList2" resultType="Cafe">
+		select * from (select rownum rn, hewon.* from (select * from cafe
+			order by cafe_no desc) hewon) where rn between #{startRow} and #{endRow}
+	</select>
+	                                                       
+</mapper>
+
+
+
+

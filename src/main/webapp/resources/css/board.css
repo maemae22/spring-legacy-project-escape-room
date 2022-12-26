@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+@import url("https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css");
+
+body{
+	font-family: "nanumbarungothic";
+	margin: 0px;
+}
+
+#fix{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.clear{
+	clear: both;
+}
+
+#btn{
+	margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+}
+
+#btn ul{
+	padding-left: 0px;
+}
+
+#btn ul li{
+	border: 1px solid #E3E3E3;
+    width: 280px;
+    height: 50px;
+    float: left;
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    margin-right: 26px;
+    margin-left: 26px;
+    font-size: 18px;
+    padding-top: 14px;
+    color: #E3E3E3;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#btn ul li>p{
+	text-decoration: none;
+    color: #ABABAB;
+}
+
+#btn ul li.active{
+	color: black;
+	background-color: orange;
+}
+
+#btn ul li.active>p{
+	text-decoration: none;
+    color: black;
+}
+
+
+#boardSpace{
+	width: 100%;
+    padding: 60px;
+    background-color: #f0f0f0;
+}
+
+#boardList, #pageNum, #writeBtn{
+	width: 100%;
+	background-color: white;
+	
+}
+
+#boardList{
+	height: 500px;
+    padding: 30px;
+}
+
+.boardTh, .boardTd{
+	text-align : center;
+}
+
+#writeBtn{
+	padding-right : 30px;
+}
+
+#pageNum{
+	padding-left: 100px;
+	min-height: 100px;
+}
+
+
+

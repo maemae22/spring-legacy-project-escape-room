@@ -1,0 +1,84 @@
+@charset "utf-8";
+.passwd {
+	background-color:#f0f0f0;
+}
+
+.passwd_box {
+   /*
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -220px;
+    margin-top: -310px;
+    padding-left: 14px;
+    border: 1px solid black;
+    width: 420px;
+    height: 380px;
+    */
+    min-width: 300px;
+    max-width: 400px;
+    margin-top: 85px;
+    margin-bottom: -170px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 657px;	
+}
+
+.passwd_title img {
+    width: 320px;
+    /* background: aqua; */
+    height: 120px;
+    margin-left: 30px;
+    margin-bottom: -30px;
+}
+
+#ment {
+	margin-top: 20px;
+    margin-bottom: 60px;
+    margin-left: 48px;
+    font-size: 18px;
+}
+
+.passwd_box label {
+	
+    display: inline-block;
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+
+.passwd_box input{
+	height: 45px;
+    width: 392px;
+    border: 1px solid #dbd8d8;
+    margin-bottom: 6px;
+    
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: background;
+    box-shadow: inset 0 0 0 1px #e1e1e1, 0 0 1px rgb(0 0 0 / 0%);
+    outline-color: black;   
+}
+
+.passwd_box input::-webkit-input-placeholder {
+  color: #c1bebe;
+}
+.passwd_box input:-moz-placeholder {
+  color: #c1bebe;
+}
+
+#passwd_btn {
+	height: 44px;
+    width: 397px;
+    margin-top: 20px;
+    margin-left: -2px;
+    border: none;
+    background: #ffee02;
+    border-radius: 30px;
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+}
+

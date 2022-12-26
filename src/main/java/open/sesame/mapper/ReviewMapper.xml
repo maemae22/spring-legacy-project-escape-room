@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.sesame.mapper.ReviewMapper">
+
+	<insert id="insertReview">
+		<selectKey resultType="int" keyProperty="reviewNo" order="BEFORE">
+			select review_seq.nextval from dual 
+		</selectKey>
+		insert into review values(#{reviewNo}, #{reviewTno}, #{reviewNick}, #{reviewPlaydate},
+			 #{reviewDifficult}, #{reviewClear}, #{reviewTime}, #{reviewHint}, #{reviewContent},
+			  sysdate, #{reviewRating})
+	</insert>
+	
+	<update id="updateReview">
+		update review 
+		<set>
+			<if test="reviewPlaydate!=null and reviewPlaydate!=''">
+				REVIEW_PLAYDATE=#{reviewPlaydate},
+			</if>
+			<if test="reviewDifficult!=null">
+				REVIEW_DIFFICULT=#{reviewDifficult},
+			</if>
+			<if test="reviewClear!=null and reviewClear!=''">
+				REVIEW_CLEAR=#{reviewClear},
+			</if>
+			<if test="reviewTime!=null and reviewTime!=''">
+				REVIEW_TIME=#{reviewTime},
+			</if>
+			<if test="reviewHint!=null">
+				REVIEW_HINT=#{reviewHint},
+			</if>
+			<if test="reviewContent!=null and reviewContent!=''">
+				REVIEW_CONTENT=#{reviewContent},
+			</if>
+			<if test="reviewRating!=null">
+				REVIEW_RATING=#{reviewRating}
+			</if>
+		</set>
+		where REVIEW_NO=#{reviewNo}
+	</update>
+	
+	<delete id="deleteReview">
+		delete from review where REVIEW_NO=#{reviewNo}
+	</delete>
+	
+	<select id="selectReview" resultType="Review">
+		select * from review where REVIEW_NO=#{reviewNo}
+	</select>
+	
+	<!-- 페이징 처리를 위하 리뷰 갯수 -->
+	<select id="reviewCount" resultType="int">
+		select count(*) from review
+	</select>
+	
+	<select id="myReviewCount" resultType="int">
+		select count(*) from review where review_nick=#{memberNick}
+	</select>
+
+
+	<!-- // 닉네임 + 테마번호로 검색 -->
+	<select id="selectReviewByNickname" resultType="Review">
+		select * from review where REVIEW_NICK=#{reviewNick} and REVIEW_TNO=#{reviewTno}
+	</select>
+	
+	<!-- 평점순으로 검색 -->
+	<select id="selectReviewListReview" resultType="Review">
+		select * from review where REVIEW_TNO=#{reviewTno} order by REVIEW_RATING desc
+	</select>
+	
+	<!-- 작성일 최신순으로 검색 -->
+	<select id="selectReviewListDate" resultType="Review">
+		select * from review where REVIEW_TNO=#{reviewTno} order by REVIEW_DATE desc
+	</select>
+	
+	<select id="selectReviewRatingByTno" resultType="Double" parameterType="int">
+		SELECT ROUND(AVG(REVIEW_RATING), 2) as review_avg FROM review where review_tno=#{reviewTno}             
+	</select>	
+
+
+	<!-- 나의 리뷰 리스트 페이징 테마이미지를 위해 map -->
+	<select id="selectMyReviewList" resultType="Map">
+		select * from (select rownum rn, review.* from (select * from review where review_nick=#{memberNick}
+		order by review_date desc) review) join theme on theme_no = review_tno  where rn between #{startRow} and #{endRow} 
+	</select>
+
+</mapper>

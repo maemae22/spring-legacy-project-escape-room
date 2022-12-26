@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+/* 공통 (Reset, Common) */ 
+
+.auth .container {
+	background-color:#f0f0f0;
+}
+
+.auth .container .container_inner.section.section_login,
+.auth .container .container_inner.section.section_register,
+.auth .container .container_inner.section.section_agreement,
+.auth .container .container_inner.section.section_cert,
+.auth .container .container_inner.section.section_find_account,
+.auth .container .container_inner.section.section_find_account_ok,
+.auth .container .container_inner.section.section_change_password { 
+	width:100%;padding:50px;box-sizing:border-box; 
+}
+
+.auth .container .container_inner.section.section_cert {
+	padding:183px 0;
+}
+
+.auth .container .container_inner.section.section_login .fixing_wid,
+.auth .container .container_inner.section.section_register .fixing_wid,
+.auth .container .container_inner.section.section_agreement .fixing_wid,
+.auth .container .container_inner.section.section_cert .fixing_wid,
+.auth .container .container_inner.section.section_find_account .fixing_wid,
+.auth .container .container_inner.section.section_find_account_ok .fixing_wid,
+.auth .container .container_inner.section.section_change_password .fixing_wid { 
+	width:960px;margin-left:auto;margin-right:auto; 
+}
+
+/* agreement */ 
+.auth .container .container_inner.section.section_agreement .fixing_wid {
+	width: 80%;
+    min-width:300px;
+    max-width:650px;
+    margin-top:30px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreement_logo {
+	width:100%;
+	text-align:center;
+	margin-bottom: -10px;
+	margin-top: -10px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreement_logo img {
+	display:inline-block;
+	width:250px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm {
+	margin:50px 0 0;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box {
+	margin:30px 0 10px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc {
+	width: 100%;
+    height:300px;
+    resize: unset;
+    overflow-y: scroll;
+    padding:20px;
+    background: #ebebe4;
+    border: 1px solid #ccc;
+    line-height: 35px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc h1 {
+	font-size:1.5em;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .introduction {
+	padding-left:10px;
+}	
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .article {
+	padding-left:10px;
+	font-size:1.2em;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .subject {
+	padding-left:20px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .list-1 {
+	list-style:circle;
+	padding-left:30px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .list-2 {
+	list-style:disc;
+	padding-left:40px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .list-1 li,
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc .list-2 li {
+	list-style:disc;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc.service .list-1 li,
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc.service .list-2 li {
+	list-style:none;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn {
+	/*margin-bottom: 7.5px;*/
+	margin-bottom:7.5px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn label {
+	display:inline-block;
+	width:26px;height:21px;
+	margin-right:7px;
+	vertical-align:middle;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn span {
+	display:inline-block;
+	width:calc(100% - 40px);
+	vertical-align:middle;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn span.notice {
+	line-height:26px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn label img {
+	display:none;
+	vertical-align:middle;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn label img.active {
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn input[type="checkbox"] {
+	width:5px;
+	/*visibility:hidden;*/
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn .label_agree_check_all {
+	display:inline-block;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .check_btn .agree_check {
+	visibility:hidden;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .btn {
+	width:100%;
+	padding:0;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .btn a,
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .btn input {
+	display:inline-block;
+	width:calc(50% - 2.5px);height:50px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .btn a {
+    margin-right:5px;
+    border:0;background-color:#a8a8a8;
+    color:#d4d4d4;font-size: 19px;
+    text-align:center;line-height:50px;
+}
+
+.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .btn input {
+	margin-right:5px;
+    border:0;background-color:#a8a8a8;
+    color:#ffee02;font-size: 19px;
+}
+
+/* cert */ 
+
+.auth .container .container_inner.section.section_cert .fixing_wid {
+	width: 80%;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .cert_logo {
+	width:100%;
+	text-align:center;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .notice {
+	width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .notice span {
+	font-weight: bolder;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .cert_logo img {
+	display:inline-block;
+	width:152px;height:38px;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .certFrm {
+	width:100%;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .certFrm .input {
+	width:calc(100% - (113px + 6px));height:44px;
+	border: 1px solid #dadada;
+	padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .cert_phone_box,
+.auth .container .container_inner.section.section_cert .fixing_wid .cert_code_box {
+	margin:10px 0;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .certFrm .btn {
+	display:inline-block;
+	width:113px;height:44px;
+	padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .hr {
+	border-top:1px solid #dedddd;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .memb_info_find {
+	width:100%;
+	margin-top:10px;
+	text-align:right;
+}
+
+.auth .container .container_inner.section.section_cert .fixing_wid .memb_info_find a {
+	display:inline-block;
+	font-size:13px;
+	text-decoration:underline;
+}
+
+
+
+/* register */
+.auth .container .container_inner.section.section_register {
+	margin:20px 0;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid {
+	width:80%;
+	min-width: 300px;
+    max-width: 400px;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_logo {
+	width:100%;
+	text-align:center;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_logo img {
+	display:inline-block;
+	width:220px;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap {
+	width:100%;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm {
+	width:100%;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .input_wrap {
+	width:100%;
+	margin:10px 0;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .input_wrap label{
+	display:block;
+	width:100%;
+	margin:2.5px 0;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .input_wrap input {  
+	width: 100%;height: 44px;
+	margin:0;padding: 0 10px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .input_wrap input.register_password_ok {
+	margin:0;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .input_wrap span {
+	display: block;
+	margin: 10px 0 20px;
+    font-size: 12px;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .btn {
+	display: inline-block;
+	width:100%;
+    margin-top:10px;margin-bottom:0;padding:0;
+    border:0;border-radius:0;
+}
+
+.auth .container .container_inner.section.section_register .fixing_wid .register_frm_wrap .register_frm .btn #register_sbmt {
+	width:100%;box-sizing:border-box;
+	padding:10px;
+	border:0;border-radius:1000px;background-color:#ffee02;
+	color:#000;
+}
+
+.rad_wrap {
+	width:calc(16.66666666666667% - 6.5px);
+	margin-right:6px;
+	float:left;
+}
+
+.rad_wrap input[type="radio"] {
+	width: 10px !important;height: 10px !important;
+	visibility:hidden;
+}
+
+.rad_wrap label {
+	width:100%;
+}
+.rad_wrap label img {
+	width:100%;
+}
+
+.rad_wrap label img.active {
+	border: 2px solid #ffee02;
+    box-sizing: border-box;
+}
+
+.rad_wrap:last-child {
+	margin-right:0;
+}
+
+/* 모바일 (해상도 너비 px 이하) */ 
+@media all and (max-width:740px) { 
+	.auth .container .container_inner.section.section_cert {
+		margin-top:56px;
+		padding:20px 0;
+	}
+
+	.auth .container .container_inner.section.section_register {
+		margin-top:56px;
+		padding:20px;
+	}
+
+	.auth .container .container_inner.section.section_agreement {
+		margin-top:56px;
+		padding:20px;
+	}
+
+	.auth .container .container_inner.section.section_register .fixing_wid {
+		width:100%;
+		min-width:initial;
+		max-width:initial;
+	}
+
+	.auth .container .container_inner.section.section_cert .fixing_wid {
+		width:80%;
+		min-width:initial;
+		max-width:initial;	
+	}
+
+	.auth .container .container_inner.section.section_agreement .fixing_wid {
+		/*width:80%;*/
+		width:94%;
+		margin-top:20px;
+		min-width:initial;
+		max-width:initial;	
+	}
+}
+
+@media all and (max-width:580px) {
+	.auth .container .container_inner.section.section_agreement .fixing_wid .agreeFrm .input_box .agree_doc h1 { 
+		font-size: 17px;
+    	margin-bottom: 10px;
+	}
+}

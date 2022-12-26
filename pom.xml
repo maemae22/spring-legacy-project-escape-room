@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- Maven : 빌드 툴 - 프로젝트의 라이브러리를 관리하는 프로그램 -->
+	<!-- pom.xml : Maven 빌드 툴을 이용하여 프로젝트에 라이브러리를 빌드하기 위한 정보를 제공하는 환경설정 파일 -->
+	<!-- => 로컬 저장소의 라이브러리 파일을 프로젝트에 빌드되도록 처리 -->
+	<!-- => 로컬 저장소에 라이브러리 파일에 없는 경우 메이븐 저장소에서 다운로드 받아 로컬 저장소에 저장 -->
+	<!-- 로컬 저장소(Local Repository) : 프로젝트에 빌드될 라이브러리 파일을 저장하기 위한 폴더 -->
+	<!-- => 사용자 폴더의 .m2 폴더를 로컬 저장소로 사용 -->
+	<!-- => 라이브러리 빌드에 문제가 있는 경우 이클립스 종료 후 .m2 폴더의 라이브러리 파일을 삭제하고 이클립스 재실행 -->
+	<!-- 메이븐 저장소(Maven Repository) : 라이브러리 파일이 저장된 네트워크 저장소 -->
+	<!-- => https://mvnrepository.com/ 사이트 참조 --> 
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>xyz.itwill</groupId>
+	<artifactId>controller</artifactId>
+	<name>spring</name>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	
+	<!-- propertie : pom.xml 파일에서 자주 사용되는 값을 식별자를 이용해 등록하기 위한 엘리먼트 -->
+	<!-- => 하위 엘리먼트의 이름을 식별자로 하여 엘리먼트의 값을 ${엘리먼트명} 형식으로 표현하여 제공 -->
+	<!-- => 라이브러리 버전 관리를 보다 쉽게 설정하기 위해 사용 -->
+	<properties>
+		<org.springframework-version>5.3.22</org.springframework-version>
+		<org.aspectj-version>1.9.9.1</org.aspectj-version>
+		<org.slf4j-version>1.7.36</org.slf4j-version>
+	</properties>
+	
+	<!-- dependencies : dependency 엘리먼트를 등록하기 위한 상위 엘리먼트 -->
+	<dependencies>
+		<!-- Spring -->
+		<!-- dependency : 라이브러리 파일을 프로젝트에 빌드 처리하기 위한 정보를 제공하는 엘리먼트 -->
+		<!-- => 의존 관계로 설정된 라이브러리 파일도 자동으로 빌드 처리 --> 
+		<dependency>
+			<!-- groupId : 라이브러리 그룹을 설정하는 엘리먼트 --> 
+			<groupId>org.springframework</groupId>
+			<!-- artifactId : 라이브러리 이름을 설정하는 엘리먼트 --> 
+			<artifactId>spring-context</artifactId>
+			<!-- version : 라이브러리 버전을 설정하는 엘리먼트 -->			
+			<version>${org.springframework-version}</version>
+			<!-- exclusions : exclusion 엘리먼트를 등록하기 위한 상위 엘리먼트 --> 
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<!-- exclusion : 의존 관계의 라이브러리 중 제외 라이브러리를 설정하기 위한 엘리먼트 -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.3</version>
+		</dependency>
+		
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+		    <!-- scope : 라이브러리의 적용 범위을 설정하는 엘리먼트 -->
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>4.0.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>javax.servlet.jsp</groupId>
+		    <artifactId>javax.servlet.jsp-api</artifactId>
+		    <version>2.3.3</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/xerces/xercesImpl -->
+		<!-- => 로그 구현체를 이용한 로깅 처리시 경로에 문제가 있는 경우 해결방법을 제공하는 라이브러리 -->		
+		<dependency>
+		    <groupId>xerces</groupId>
+		    <artifactId>xercesImpl</artifactId>
+		    <version>2.12.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+		<!-- => Maven plugin 문제에 의해 pom.xml에서 에러가 발생된 경우 빌드 처리에 대한 해결을 위한 라이브러리 -->
+		<!--
+		<dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-resources-plugin</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+	    -->    
+	    
+	    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+	    <!-- => Spring AOP에서 핵심관심코드와 횡단관심코드를 결합하기 위한 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${org.aspectj-version}</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<!-- => Spring Context 확장 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<!-- Java Mail 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+		<!-- => JDBC 기능을 제공하기 위한 OracleDriver 라이브러리 -->
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc11</artifactId>
+		    <version>21.6.0.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+		<!-- => Apache 그룹에서 제공하는 DataSource 기능의 라이브러리 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- => Spring Framework의 SpringDAO 기능을 제공하는 라이브러리 -->
+		<!-- => SpringDAO에는 DataSource 기능 포함 --> 
+		<!-- => spring-tx 라이브러리(트렌젝션 관리)도 의존관계에 의해 자동으로 빌드 처리 --> 
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency> 
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<!-- => TilesView 기능을 제공하기 위한 라이브러리 -->
+		<dependency>
+		    <groupId>org.apache.tiles</groupId>
+		    <artifactId>tiles-extras</artifactId>
+		    <version>3.0.8</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- => Mybatis Framework 기능을 제공하기 위한 라이브러리 -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.10</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<!-- => Spring Framework에서 Mybatis Framework 기능을 제공하기 위한 라이브러리  -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.7</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
+		<!-- => 퍼시스턴스 프레임워크(Persistence Framework)에서 발생되는 로그 이벤트를 제공받아 
+		Spring Framwork의 로그 구현체로 기록하기 위한 기능을 제공하는 라이브러리  -->
+		<dependency>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+		    <version>1.16</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<!-- => Spring Framwork의 테스트 프로그램 작성에 필요한 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <!-- <scope>test</scope> -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<!-- => 클래스에 생성자와 메소드를 자동으로 생성하여 제공하기 위한 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.24</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+		<!-- => 암호화 처리 기능을 제공하기 위한 라이브러리 -->
+		<dependency>
+		    <groupId>org.mindrot</groupId>
+		    <artifactId>jbcrypt</artifactId>
+		    <version>0.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<!-- => 파일 업로드 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!-- => Java 객체를 JSON 형식의 텍스트 데이타로 변환하는 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.13.3</version>
+		</dependency>
+
+	</dependencies>
+		
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

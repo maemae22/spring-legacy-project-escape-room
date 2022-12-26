@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.sesame.mapper.ThemeMapper">
+	
+	
+	<select id="selectCafeThemeCount" resultType="int">
+		select count(*) from theme where #{cafeName}
+	</select>
+	
+	<select id="selectTheme" resultType="Theme">
+		select * from theme where theme_no=#{themeNo}
+	</select>
+	
+	<select id="selectThemeListCafe" resultType="String">
+		select theme_name 
+		from theme 
+		where theme_cname = #{themeCname}
+	</select>
+	
+	<select id="selectThemeList" resultType="Theme">
+		select * from theme order by Theme_no
+	</select>
+
+	<select id="selectOtherThemeList" resultType="Theme">
+		select * from theme where theme_cname=#{themeCname}
+	</select>
+	
+	<!--  파라미터 2개로 받아오는거 9월에 만들어보기 ..
+	 select * from theme where theme_cname=#{themeCname} and theme_no!=#{themeNo}  -->
+	
+	<select id="selectThemeCateList" parameterType="map" resultType="Theme">
+		select * from theme full outer join cafe on theme.theme_cname = cafe.cafe_name where cafe_loc 
+
+		<choose>
+			<when test="themeCate_loc.equals('')">
+			like('%%')
+			</when>
+			<otherwise>
+			in
+				<foreach collection="themeCate_loc" item="location" separator="," open="(" close=")">
+				#{location}
+				</foreach>
+			</otherwise>		
+		</choose>
+		
+			and theme_genre
+		<choose>
+			<when test="themeCate_genre.equals('')">
+			like('%%')
+			</when>
+			<otherwise>
+			in
+				<foreach collection="themeCate_genre" item="genre" separator="," open="(" close=")">
+					#{genre}
+				</foreach>
+			</otherwise>
+		</choose>
+		
+		and theme_difficult in
+		<foreach collection="themeCate_difficult" item="difficult" separator="," open="(" close=")">
+		#{difficult}
+		</foreach>
+		
+		and theme_activity in
+		<foreach collection="themeCate_activity" item="activity" separator="," open="(" close=")">
+		#{activity}
+		</foreach>
+
+		and substr(theme_recommend,1,2) in
+		<foreach collection="themeCate_recommend" item="recommend" separator="," open="(" close=")">
+		#{recommend}
+		</foreach>
+
+		order by theme_no
+	
+	</select>
+		<select id="selectThemeCount" resultType="int">
+		select count(*) from theme
+	</select>
+	<delete id="deletetheme">
+		delete from theme where theme_name=#{themeName}
+	</delete>
+	
+	<select id="selectThemeList2" resultType="theme">
+		select * from (select rownum rn, thmeme.* from (select * from theme
+			order by theme_no desc) thmeme) where rn between #{startRow} and #{endRow}
+	</select>
+	<insert id="insertTheme">
+	<selectKey resultType="int" keyProperty="themeNo" order="BEFORE">
+			select theme_seq.nextval from dual 
+		</selectKey>
+		 insert into theme values(#{themeNo},#{themeCname},#{themeName},0,#{themeGenre}
+		 ,#{themeActivity},#{themeDifficult},#{themeLimit},#{themeRecommend},#{themeIntro},#{themeImageLoc})
+	</insert>
+	
+	<update id="updateTheme">
+		update theme
+	 	<set>
+	 		<if test="themeGenre!=null and themeGenre!=''">
+				theme_genre=#{themeGenre},
+			</if>
+	 		<if test="themeActivity!=null and themeActivity!=''">
+				theme_activity=#{themeActivity},
+			</if>
+	 		<if test="themeDifficult!=null and themeDifficult!=''">
+				theme_difficult=#{themeDifficult},
+			</if>
+	 		<if test="themeRecommend!=null and themeRecommend!=''">
+				theme_recommend=#{themeRecommend},
+			</if>
+	 		<if test="themeCname!=null and themeCname!=''">
+				theme_cname=#{themeCname},
+			</if>
+	 		<if test="themeIntro!=null and themeIntro!=''">
+				theme_intro=#{themeIntro},
+			</if>
+	 		<if test="themeImageLoc!=null and themeImageLoc!=''">
+				theme_image_loc=#{themeImageLoc}
+			</if>
+	 	</set>
+	 	where theme_no=#{themeNo}
+	</update>
+
+</mapper>

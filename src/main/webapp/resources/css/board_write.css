@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@import url("https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css");
+
+body{
+	font-family: "nanumbarungothic";
+	margin: 0px;
+}
+
+#fix{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divs{
+	background-color: white;
+	border: 1px solid lightgrey;
+	min-height : 500px;
+	padding : 30px;
+}
+
+#submitBtn{
+	width: 70px;
+    height: 25px;
+    padding-left: 7px;
+    padding-top: 3px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 7px;
+    border: 1px solid #cfcfcf;
+}
+
+#boardTitle{
+	width: 450px;
+    margin-left: 20px;
+}
+
+#topTitle, #topNick{
+	
+    display: inline-block;
+    height: 20px;
+}
+
+#topTitle{
+	width: 500px;
+}
+
+#topNick{
+	width: 300px;
+}
+
+#topNick, #topNick>p, #topNick>label, #topNick>input{
+	float: right;
+}
+
+#topNick>label{
+	margin-left: 30px;
+}
+
+#topTitle>p, #topNick>p{
+	margin-left: 30px;
+}
+
+#topTitle>p, #topTitle>label,#topNick>p, #topNick>label, .replyNickDiv, .replyContentDiv{
+	display: inline-block;
+}
+
+#topDiv{
+	padding-right: 47px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#contextDiv{
+	min-height: 200px;
+    padding: 45px;
+}

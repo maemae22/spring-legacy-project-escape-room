@@ -1,0 +1,113 @@
+#v-cal *,
+#v-cal :after,
+#v-cal :before {
+    box-sizing: border-box
+}
+
+#v-cal {
+    background-color: #fff;
+    border-radius: 0;
+    border: 1px solid #e7e9ed;
+    box-shadow: 0 4px 22px 0 rgba(0, 0, 0, .05);
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%
+}
+
+#v-cal .vcal-btn {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: normal;
+    min-width: 27px;
+    outline: none;
+    overflow: visible;
+    padding: 0;
+    text-align: center
+}
+
+#v-cal .vcal-btn:active {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px rgba(16, 152, 158, .1)
+}
+
+#v-cal .vcal-header {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    padding: 19.2px 22.4px;
+    padding: 1.2rem 1.4rem
+}
+
+#v-cal .vcal-header svg {
+    fill: #10989e
+}
+
+#v-cal .vcal-header__label {
+    font-weight: 700;
+    text-align: center;
+    width: 100%
+}
+
+#v-cal .vcal-week {
+    background-color: #e7e9ed;
+    display: flex;
+    flex-wrap: wrap
+}
+
+#v-cal .vcal-week span {
+    flex-direction: column;
+    flex: 0 0 14.28%;
+    font-size: 19.2px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    max-width: 14.28%;
+    padding: 19.2px 22.4px;
+    padding: 1.2rem 1.4rem;
+    text-align: center;
+    text-transform: uppercase
+}
+
+#v-cal .vcal-body {
+    background-color: rgba(231, 233, 237, .3);
+    flex-wrap: wrap
+}
+
+#v-cal .vcal-body,
+#v-cal .vcal-date {
+    display: flex
+}
+
+#v-cal .vcal-date {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 0;
+    flex-direction: column;
+    flex: 0 0 14.28%;
+    max-width: 14.28%;
+    padding: 19.2px 0;
+    padding: 1.2rem 0
+}
+
+#v-cal .vcal-date--active {
+    cursor: pointer
+}
+
+#v-cal .vcal-date--today {
+    background-color: #10989e;
+    color: #fff
+}
+
+#v-cal .vcal-date--selected {
+    background-color: orange;
+;
+    color: #333
+}
+
+#v-cal .vcal-date--disabled {
+    border-radius: 0;
+    cursor: not-allowed;
+    opacity: .5
+}

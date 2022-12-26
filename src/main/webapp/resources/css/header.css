@@ -1,0 +1,446 @@
+@charset "UTF-8";
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: #0e0d02;
+}
+
+.header .m_header_wrap {
+    display: none;
+}
+
+.header .header_wrap {
+    position: relative;
+    width: 95%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .header_wrap .logo {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 150px;
+    /* height: 100%; */
+    padding-top: 10px;
+}
+
+.header .header_wrap .logo a {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.header .header_wrap .logo a img {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 76%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header .header_wrap .main_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 62px;
+}
+
+.header .header_wrap .main_menu .depth1 {
+    display: inline-block;
+}
+
+.header .header_wrap .main_menu .depth1 li {
+    float: left;
+    margin: 0 21px;
+    list-style: none;
+    /*padding: 0 0 42px;*/
+}
+
+.header .header_wrap .main_menu .depth1 li a {
+    line-height: 55px;
+    color: rgb(217, 216, 207);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.header .header_wrap .header_util {
+    float: right;
+    height: 100%;
+}
+
+.header .header_wrap .header_util .login {
+    display: inline-block;
+    position: relative;
+    width: 84.56px;
+    height: 100%;
+    /*line-height: 55px;*/
+}
+
+.header .header_wrap .header_util .login a.login_layer_open {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 84.56px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header .header_wrap .header_util .login a.login_layer_open img {
+    height: 20px;
+    cursor: pointer;
+}
+
+.header .header_wrap .header_util .login a.login_layer_open img.login_btn_mouse_over {
+    display: none;
+}
+
+.header .header_wrap .header_util .user_info {
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+    position: relative;
+    top: -23px;
+}
+
+.header .header_wrap .header_util .user_info span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.header .header_wrap .header_util .user_info span.user_point {
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.header .header_wrap .header_util .user_info span.user_point a {
+    color: #fff;
+}
+
+.header .header_wrap .header_util .user_info span>img {
+    vertical-align: middle;
+    width: 28px;
+    display: inline-block;
+}
+
+.header .header_wrap .header_util .logout {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100%;
+    line-height: 55px!important;
+}
+
+.header .header_wrap .header_util .logout a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 0;
+    width: 100px;
+    height: 33px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header .header_wrap .header_util .logout a img {
+    width: auto;
+    height: 80%;
+}
+
+.header .header_wrap .header_util .login a img.logout_btn_mouse_over {
+    display: none;
+}
+
+.header .header_wrap .header_util .logout a img.logout_btn_mouse_over {
+    display: none;
+}
+
+.header .header_wrap .header_util .join {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 100%;
+    line-height: 55px;
+    vertical-align: top;
+}
+
+
+.header .header_wrap .header_util .join a {
+    color: #9c9a9a;
+    line-height: 36px;
+    font-size: 13px;
+    width: 100px;
+    text-decoration: underline;
+}
+
+.m_main_menu {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: -120%;
+    background-color: rgba(0, 0, 0, 0.9);
+    
+}
+
+.m_main_menu.active {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9990;
+}
+
+.m_main_menu .m_main_menu_close_btn {
+    width: 100%;
+    height: 80px;
+}
+
+.m_main_menu .m_main_menu_close_btn .m_login {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 29px;
+    margin-right: 25px;
+    width: 50px;
+    height: 80px;
+}
+
+.m_main_menu .m_main_menu_close_btn .m_join {
+    text-decoration: underline;
+}
+
+.m_main_menu .m_main_menu_close_btn .m_logout {
+    display: inline-block;
+    margin-top: 29px;
+    margin-right: 25px;
+}
+
+.m_main_menu .m_main_menu_close_btn .m_logout img {
+    width: 56px;
+    vertical-align: middle;
+}
+
+.m_main_menu .m_main_menu_close_btn>img {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    margin-top: 25px;
+}
+
+.m_main_menu nav {
+    padding: 0px 25px;
+    box-sizing: border-box;
+}
+
+.m_main_menu nav ul li {
+    list-style: none;
+}
+
+.m_main_menu nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    text-align: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+
+.m_main_menu nav ul li a span {
+    display: inline-block;
+    padding: 5px 0;
+    border-bottom: 2px solid yellow;
+}
+
+.m_main_menu .m_user_info {
+    display: inline-block;
+    height: 80px;
+    /* line-height: 80px; */
+    position: relative;
+    /* top: -23px; */
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.m_main_menu .m_user_info span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.m_main_menu .m_user_info span.user_point {
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.m_main_menu .m_user_info span.user_point a {
+    color: #fff;
+}
+
+.m_main_menu .m_user_info span>img {
+    vertical-align: middle;
+    width: 28px;
+    display: inline-block;
+}
+
+
+/* 패블릿 가로모드/태블릿 (뷰포트 너비 1024px 이하) */
+@media all and (max-width:900px) and (min-width:641px) {
+
+    body {
+        position: relative;
+    }
+
+    /* header */
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 56px;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 999;
+    }
+
+    /* header_wrap */
+    .header .header_wrap {
+        display: none;
+    }
+
+    .header .m_header_wrap {
+        display: block;
+        position: relative;
+        width: 98%;
+        height: 100%;
+        z-index: 1111;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        width: 36px;
+        height: 32px;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn img {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+/* 모바일 (해상도 640px 이하) */
+@media all and (max-width:640px) and (min-width:421px) {
+
+    body {
+        position: relative;
+    }
+
+    /* header */
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 56px;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 999;
+    }
+
+    /* header_wrap */
+    .header .header_wrap {
+        display: none;
+    }
+
+
+    .header .m_header_wrap {
+        display: block;
+        width: 95%;
+        height: 100%;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        width: 36px;
+        height: 32px;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn img {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+/* 모바일 (해상도 420px 이하) */
+@media all and (max-width:420px) {
+
+    body {
+        position: relative;
+    }
+
+    /* header */
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 56px;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 999;
+    }
+
+    /* header_wrap */
+    .header .header_wrap {
+        display: none;
+    }
+
+
+    .header .m_header_wrap {
+        display: block;
+        width: 95%;
+        height: 100%;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        width: 36px;
+        height: 32px;
+    }
+
+    .header .m_header_wrap .m_main_menu_btn img {
+        width: 100%;
+        height: 100%;
+    }
+
+}

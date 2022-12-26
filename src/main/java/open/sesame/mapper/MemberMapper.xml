@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.sesame.mapper.MemberMapper">
+	<insert id="insertMember">
+		<selectKey resultType="int" keyProperty="memberNo" order="BEFORE">
+			select member_seq.nextval from dual 
+		</selectKey>
+		insert into member values(#{memberNo},#{memberEmail},#{memberNick},#{memberPasswd},#{memberPhone},sysdate,1,#{emailKey},#{emailStatus})
+	</insert>
+	
+	<update id="updateMember">
+		update member 
+		<set>
+			<if test="memberNick!=null and memberNick!=''">
+			 	member_nick=#{memberNick},
+			</if>
+			<if test="memberPasswd!=null and memberPasswd!=''">
+			 	member_passwd=#{memberPasswd},
+			</if>
+			<if test="memberPhone!=null and memberPhone!=''">
+			 	member_phone=#{memberPhone},
+			</if>
+			<if test="memberStatus!=null and memberStatus!=0">
+			 	member_status=#{memberStatus}
+			</if>
+		</set>
+		where member_email=#{memberEmail}
+	</update>
+	
+	<delete id="deleteMember">
+		delete from member where member_email=#{memberEmail}
+	</delete>
+	
+	<!-- 페이징 처리를 위한 카운트 -->
+	<select id="selectMemberCount" resultType="int">
+		select count(*) from member
+	</select>
+	
+	
+	<select id="selectMember" resultType="Member">
+		select * from member where member_email=#{memberEmail}
+	</select>
+	
+	<select id="selectMemberList" resultType="Member">
+		select * from (select rownum rn, hewon.* from (select * from member
+			order by member_no desc) hewon) where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 이메일 중복체크 -->
+	<select id="emailCheck" parameterType="String" resultType="int">
+		select count(member_email) from member where member_email=#{memberEmail}
+	</select>
+
+	<!-- 닉네임 중복체크 -->
+	<select id="nickCheck" parameterType="String" resultType="int">
+		select count(member_nick) from member where member_nick=#{memberNick}
+	</select>
+
+	<!-- 핸드폰 중복체크 -->
+	<select id="phoneCheck" parameterType="String" resultType="int">
+		select count(member_phone) from member where member_phone=#{memberPhone}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="String" resultType="String">
+		select member_email from member where member_phone=#{memberPhone}
+	</select>
+	
+	<!-- 비밀번호 찾기 
+	<select id="findPass" resultType="Member">
+		select member_passwd from member where member_email=#{memberEmail} and member_phone=#{memberPhone}
+	</select> -->
+	
+	<!-- 비밀번호 찾기 입력받은 이메일과 폰으로 비밀번호 변경-->
+	<update id="findPw" >
+		update member set member_passwd=#{memberPasswd} where member_email=#{memberEmail} and member_phone=#{memberPhone}
+	</update>
+	
+	<!-- 비밀번호 찾기 카운터하여 맞는값 없으면 0리턴 -> 유효성 검사-->
+	<select id="findPwCheck" resultType="int">
+		select count(*) from member where member_email=#{memberEmail} and member_phone=#{memberPhone}
+	</select>
+	
+</mapper>
